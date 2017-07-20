@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Domain", "NAControl.Domain", "{4DBC19A1-751A-4F1F-A875-586FF676E0A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Domain", "NaControl.Domain\NaControl.Domain.csproj", "{A81476D2-332D-4D9A-A50E-651A033C3EE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Infraestructure", "NAControl.Infraestructure", "{CE9B33C6-AC6E-49B6-A7CD-E5493C732EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Infraestructure", "NaControl.Infraestructure\NaControl.Infraestructure.csproj", "{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Startup", "NAControl.Startup", "{E7A3BEDA-EBEF-48A3-9149-C494731B4983}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAControl.Startup", "NAControl.Startup\NAControl.Startup.csproj", "{720FC492-E83F-4F93-9B98-115CF47E3C19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Common", "NAControl.Common", "{4139E5A6-9246-46A7-A0BA-53AE9EFA7FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Common", "NAControl.Common\NaControl.Common.csproj", "{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A81476D2-332D-4D9A-A50E-651A033C3EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81476D2-332D-4D9A-A50E-651A033C3EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81476D2-332D-4D9A-A50E-651A033C3EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81476D2-332D-4D9A-A50E-651A033C3EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720FC492-E83F-4F93-9B98-115CF47E3C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720FC492-E83F-4F93-9B98-115CF47E3C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720FC492-E83F-4F93-9B98-115CF47E3C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720FC492-E83F-4F93-9B98-115CF47E3C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A81476D2-332D-4D9A-A50E-651A033C3EE6} = {4DBC19A1-751A-4F1F-A875-586FF676E0A7}
+		{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8} = {CE9B33C6-AC6E-49B6-A7CD-E5493C732EEB}
+		{720FC492-E83F-4F93-9B98-115CF47E3C19} = {E7A3BEDA-EBEF-48A3-9149-C494731B4983}
+		{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705} = {4139E5A6-9246-46A7-A0BA-53AE9EFA7FA4}
+	EndGlobalSection
+EndGlobal

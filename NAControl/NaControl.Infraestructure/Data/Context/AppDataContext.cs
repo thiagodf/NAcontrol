@@ -1,8 +1,8 @@
-﻿using NaControl.Domain.Models;
-using NaControl.Infraestructure.Data.Map;
+﻿using NAControl.Domain.Models;
+using NAControl.Infraestructure.Data.Map;
 using System.Data.Entity;
 
-namespace NaControl.Infraestructure.Data
+namespace NAControl.Infraestructure.Data
 {
     public class AppDataContext: DbContext
     {

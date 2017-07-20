@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Domain", "NAControl.Domain", "{4DBC19A1-751A-4F1F-A875-586FF676E0A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Domain", "NaControl.Domain\NaControl.Domain.csproj", "{A81476D2-332D-4D9A-A50E-651A033C3EE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAControl.Domain", "NaControl.Domain\NAControl.Domain.csproj", "{A81476D2-332D-4D9A-A50E-651A033C3EE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Infraestructure", "NAControl.Infraestructure", "{CE9B33C6-AC6E-49B6-A7CD-E5493C732EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Infraestructure", "NaControl.Infraestructure\NaControl.Infraestructure.csproj", "{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAControl.Infraestructure", "NaControl.Infraestructure\NAControl.Infraestructure.csproj", "{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Startup", "NAControl.Startup", "{E7A3BEDA-EBEF-48A3-9149-C494731B4983}"
 EndProject
@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAControl.Startup", "NACont
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAControl.Common", "NAControl.Common", "{4139E5A6-9246-46A7-A0BA-53AE9EFA7FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaControl.Common", "NAControl.Common\NaControl.Common.csproj", "{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAControl.Common", "NAControl.Common\NAControl.Common.csproj", "{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

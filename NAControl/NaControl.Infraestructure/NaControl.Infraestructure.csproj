@@ -7,10 +7,11 @@
     <ProjectGuid>{8936B537-6D1F-4693-AB93-D4BCEB9A8CD8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NaControl.Infraestructure</RootNamespace>
-    <AssemblyName>NaControl.Infraestructure</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>NAControl.Infraestructure</RootNamespace>
+    <AssemblyName>NAControl.Infraestructure</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,19 +50,19 @@
   <ItemGroup>
     <Compile Include="Data\Context\AppDataContext.cs" />
     <Compile Include="Data\Map\UsuarioMapa.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UsuarioRepositorio.cs" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\NaControl.Domain\NaControl.Domain.csproj">
-      <Project>{a81476d2-332d-4d9a-a50e-651a033c3ee6}</Project>
-      <Name>NaControl.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NaControl.Domain\NAControl.Domain.csproj">
+      <Project>{a81476d2-332d-4d9a-a50e-651a033c3ee6}</Project>
+      <Name>NAControl.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

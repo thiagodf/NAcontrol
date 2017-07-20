@@ -1,5 +1,4 @@
-﻿using NaControl.Common.Resources;
-using SpaNaControl.Common.Validation;
+﻿using NAControl.Common.Resources;
 
 namespace NAControl.Common.Validation
 {

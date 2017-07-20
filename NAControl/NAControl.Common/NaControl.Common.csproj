@@ -7,8 +7,8 @@
     <ProjectGuid>{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NaControl.Common</RootNamespace>
-    <AssemblyName>NaControl.Common</AssemblyName>
+    <RootNamespace>NAControl.Common</RootNamespace>
+    <AssemblyName>NAControl.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

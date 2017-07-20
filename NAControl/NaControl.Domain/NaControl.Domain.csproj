@@ -7,10 +7,11 @@
     <ProjectGuid>{A81476D2-332D-4D9A-A50E-651A033C3EE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NaControl.Domain</RootNamespace>
-    <AssemblyName>NaControl.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>NAControl.Domain</RootNamespace>
+    <AssemblyName>NAControl.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,9 +46,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NAControl.Common\NaControl.Common.csproj">
+    <ProjectReference Include="..\NAControl.Common\NAControl.Common.csproj">
       <Project>{33c11ca0-7b5a-44f9-8a7c-2711ec1a9705}</Project>
-      <Name>NaControl.Common</Name>
+      <Name>NAControl.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

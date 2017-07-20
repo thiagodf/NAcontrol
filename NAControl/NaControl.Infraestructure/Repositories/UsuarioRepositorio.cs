@@ -1,11 +1,12 @@
-﻿using NaControl.Domain.Contracts.Repositories;
-using NaControl.Domain.Models;
-using NaControl.Infraestructure.Data;
+﻿using NAControl.Domain.Contracts.Repositories;
+using NAControl.Domain.Models;
+using NAControl.Infraestructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 
-namespace NaControl.Infraestructure.Repositories
+namespace NAControl.Infraestructure.Repositories
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {

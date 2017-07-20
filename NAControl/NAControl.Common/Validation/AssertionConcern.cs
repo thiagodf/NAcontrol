@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace NaControl.Common.Validation
+namespace NAControl.Common.Validation
 {
     public class AssertionConcern
     {

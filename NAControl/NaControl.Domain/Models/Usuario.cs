@@ -1,9 +1,8 @@
-﻿using NaControl.Common.Resources;
-using NaControl.Common.Validation;
+﻿using NAControl.Common.Resources;
 using NAControl.Common.Validation;
 using System;
 
-namespace NaControl.Domain.Models
+namespace NAControl.Domain.Models
 {
     public class Usuario
     {

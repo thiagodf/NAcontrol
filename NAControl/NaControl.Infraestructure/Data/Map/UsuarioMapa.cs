@@ -1,9 +1,9 @@
-﻿using NaControl.Domain.Models;
+﻿using NAControl.Domain.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace NaControl.Infraestructure.Data.Map
+namespace NAControl.Infraestructure.Data.Map
 {
     class UsuarioMapa: EntityTypeConfiguration<Usuario>
     {

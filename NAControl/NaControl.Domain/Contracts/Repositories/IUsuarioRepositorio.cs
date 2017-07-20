@@ -1,8 +1,8 @@
-﻿using NaControl.Domain.Models;
+﻿using NAControl.Domain.Models;
 using System;
 using System.Collections.Generic;
 
-namespace NaControl.Domain.Contracts.Repositories
+namespace NAControl.Domain.Contracts.Repositories
 {
     public interface IUsuarioRepositorio : IDisposable
     {

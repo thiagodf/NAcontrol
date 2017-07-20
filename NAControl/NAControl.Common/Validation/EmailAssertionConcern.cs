@@ -1,4 +1,4 @@
-﻿using NaControl.Common.Resources;
+﻿using NAControl.Common.Resources;
 using System;
 using System.Text.RegularExpressions;
 

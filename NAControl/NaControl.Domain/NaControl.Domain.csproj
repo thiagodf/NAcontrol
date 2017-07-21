@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Contracts\Repositories\IUsuarioRepositorio.cs" />
     <Compile Include="Contracts\Services\IUsuarioServico.cs" />
+    <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

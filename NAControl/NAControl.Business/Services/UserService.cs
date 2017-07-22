@@ -76,7 +76,7 @@ namespace NAControl.Business.Services
         {
             var User = GetByEmail(email);
             var senha = User.resetPassword();
-            User.();
+            //User.();
 
             _repository.Update(User);
             return senha;

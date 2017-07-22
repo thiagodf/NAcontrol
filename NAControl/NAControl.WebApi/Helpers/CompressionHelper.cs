@@ -17,13 +17,13 @@ namespace NAControl.WebApi.Helpers
 
             using (var output = new MemoryStream())
             {
-                using (
-                    var compressor = new Ionic.Zlib.DeflateStream(
-                    output, Ionic.Zlib.CompressionMode.Compress,
-                    Ionic.Zlib.CompressionLevel.BestSpeed))
-                {
-                    compressor.Write(str, 0, str.Length);
-                }
+            //    using (
+            //        var compressor = new Ionic.Zlib.DeflateStream(
+            //        output, Ionic.Zlib.CompressionMode.Compress,
+            //        Ionic.Zlib.CompressionLevel.BestSpeed))
+            //    {
+            //        compressor.Write(str, 0, str.Length);
+            //    }
 
                 return output.ToArray();
             }

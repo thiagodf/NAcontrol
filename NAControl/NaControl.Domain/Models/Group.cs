@@ -12,7 +12,7 @@ namespace NAControl.Domain.Models
         public Group(string name, Address adress)
         {
             this.Name = name;
-            this.Adress = adress;
+            //this.Adress = adress;
         }
 
         #endregion

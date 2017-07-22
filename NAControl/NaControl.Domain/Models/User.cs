@@ -36,10 +36,10 @@ namespace NAControl.Domain.Models
 
         public void setPassword(string password, string confirmPassword)
         {
-            AssertionConcern.AssertArgumentNotNull(password, Errors.InvalidPassword);
-            AssertionConcern.AssertArgumentNotNull(confirmPassword, Errors.InvalidConfirmPassword);
-            AssertionConcern.AssertArgumentEquals(password, confirmPassword, Errors.PasswordDoNotMatch);
-            AssertionConcern.AssertArgumentLength(password, 6, 10, Errors.InvalidPassword);
+            AssertionConcern.AssertArgumentNotNull(password, Errors.InvalidUserPassword);
+            AssertionConcern.AssertArgumentNotNull(confirmPassword, Errors.InvalidUserPassword);
+            AssertionConcern.AssertArgumentEquals(password, confirmPassword, Errors.InvalidUserPassword);
+            AssertionConcern.AssertArgumentLength(password, 6, 10, Errors.InvalidUserPassword);
 
             this.Password = PasswordAssertionConcern.Encrypt(password);
         }

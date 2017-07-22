@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using NAControl.WebApi.Helpers;
+using System.Net.Http;
 using System.Web.Http.Filters;
 
 namespace NAControl.WebApi.Attributes

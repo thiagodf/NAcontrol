@@ -108,8 +108,8 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -187,6 +187,10 @@
     <ProjectReference Include="..\NaControl.Domain\NAControl.Domain.csproj">
       <Project>{a81476d2-332d-4d9a-a50e-651a033c3ee6}</Project>
       <Name>NAControl.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NAControl.Injection\NAControl.Injection.csproj">
+      <Project>{E26D68A8-EC09-404C-B675-6580F4777677}</Project>
+      <Name>NAControl.Injection</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

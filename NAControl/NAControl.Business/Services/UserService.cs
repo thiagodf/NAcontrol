@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace NAControl.Business.Services
 {
-    public class UserService : IUserServico
+    public class UserService : IUserService
     {
-        private IUserRepositorio _repository;
+        private IUserRepository _repository;
 
-        public UserService(IUserRepositorio repository)
+        public UserService(IUserRepository repository)
         {
             this._repository = repository;
         }
@@ -24,28 +24,28 @@ namespace NAControl.Business.Services
         {
             var User = GetByEmail(email);
 
-            if (User.Senha != /*PasswordAssertionConcern.Encrypt(senha)*/ "")
+            if (User.Password != /*PasswordAssertionConcern.Encrypt(senha)*/ "")
                 throw new Exception(/*Errors.InvalidCredentials*/ "");
 
             return User;
         }
 
-        public void AlterarUser(string email, string nome)
+        public void ChangeUser(string email, string nome)
         {
             var User = GetByEmail(email);
 
-            User.AlteraNome(nome);
-            User.Validar();
+            User.ChangeName(nome);
+            User.Validate();
 
             _repository.Update(User);
         }
 
-        public void AlterarSenha(string email, string password, string newSenha, string confirmaNovaSenha)
+        public void ChangePassword(string email, string password, string newSenha, string confirmaNovaSenha)
         {
             var User = Authenticate(email, password);
 
-            User.InformarSenha(newSenha, confirmaNovaSenha);
-            User.Validar();
+            User.setPassword(newSenha, confirmaNovaSenha);
+            User.Validate();
 
             _repository.Update(User);
         }
@@ -57,8 +57,8 @@ namespace NAControl.Business.Services
                 throw new Exception(/*Errors.DuplicateEmail*/"");
 
             var User = new User(nome, email);
-            User.InformarSenha(senha, confirmaSenha);
-            User.Validar();
+            User.setPassword(senha, confirmaSenha);
+            User.Validate();
 
             _repository.Create(User);
         }
@@ -72,11 +72,11 @@ namespace NAControl.Business.Services
             return User;
         }
 
-        public string ResetSenha(string email)
+        public string ResetPassword(string email)
         {
             var User = GetByEmail(email);
-            var senha = User.ResetarSenha();
-            User.Validar();
+            var senha = User.resetPassword();
+            User.();
 
             _repository.Update(User);
             return senha;

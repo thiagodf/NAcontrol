@@ -11,78 +11,78 @@ using System.Threading.Tasks;
 
 namespace NAControl.Business.Services
 {
-    public class UserService : IUsuarioServico
+    public class UserService : IUserServico
     {
-        private IUsuarioRepositorio _repository;
+        private IUserRepositorio _repository;
 
-        public UserService(IUsuarioRepositorio repository)
+        public UserService(IUserRepositorio repository)
         {
             this._repository = repository;
         }
 
-        public Usuario Authenticate(string email, string senha)
+        public User Authenticate(string email, string senha)
         {
-            var usuario = GetByEmail(email);
+            var User = GetByEmail(email);
 
-            if (usuario.Senha != /*PasswordAssertionConcern.Encrypt(senha)*/ "")
+            if (User.Senha != /*PasswordAssertionConcern.Encrypt(senha)*/ "")
                 throw new Exception(/*Errors.InvalidCredentials*/ "");
 
-            return usuario;
+            return User;
         }
 
-        public void AlterarUsuario(string email, string nome)
+        public void AlterarUser(string email, string nome)
         {
-            var usuario = GetByEmail(email);
+            var User = GetByEmail(email);
 
-            usuario.AlteraNome(nome);
-            usuario.Validar();
+            User.AlteraNome(nome);
+            User.Validar();
 
-            _repository.Update(usuario);
+            _repository.Update(User);
         }
 
         public void AlterarSenha(string email, string password, string newSenha, string confirmaNovaSenha)
         {
-            var usuario = Authenticate(email, password);
+            var User = Authenticate(email, password);
 
-            usuario.InformarSenha(newSenha, confirmaNovaSenha);
-            usuario.Validar();
+            User.InformarSenha(newSenha, confirmaNovaSenha);
+            User.Validar();
 
-            _repository.Update(usuario);
+            _repository.Update(User);
         }
 
         public void Register(string nome, string email, string senha, string confirmaSenha)
         {
-            var hasUsuario = _repository.Get(email);
-            if (hasUsuario != null)
+            var hasUser = _repository.Get(email);
+            if (hasUser != null)
                 throw new Exception(/*Errors.DuplicateEmail*/"");
 
-            var usuario = new Usuario(nome, email);
-            usuario.InformarSenha(senha, confirmaSenha);
-            usuario.Validar();
+            var User = new User(nome, email);
+            User.InformarSenha(senha, confirmaSenha);
+            User.Validar();
 
-            _repository.Create(usuario);
+            _repository.Create(User);
         }
 
-        public Usuario GetByEmail(string email)
+        public User GetByEmail(string email)
         {
-            var usuario = _repository.Get(email);
-            if (usuario == null)
+            var User = _repository.Get(email);
+            if (User == null)
                 throw new Exception(/*Errors.UserNotFound*/"");
 
-            return usuario;
+            return User;
         }
 
         public string ResetSenha(string email)
         {
-            var usuario = GetByEmail(email);
-            var senha = usuario.ResetarSenha();
-            usuario.Validar();
+            var User = GetByEmail(email);
+            var senha = User.ResetarSenha();
+            User.Validar();
 
-            _repository.Update(usuario);
+            _repository.Update(User);
             return senha;
         }
 
-        public List<Usuario> GetByRange(int skip, int take)
+        public List<User> GetByRange(int skip, int take)
         {
             return _repository.Get(skip, take);
         }

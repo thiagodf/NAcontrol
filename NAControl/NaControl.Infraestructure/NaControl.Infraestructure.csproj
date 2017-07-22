@@ -49,10 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Context\AppDataContext.cs" />
-    <Compile Include="Data\Map\UsuarioMapa.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Data\Map\AddressMap.cs" />
+    <Compile Include="Data\Map\GroupMap.cs" />
+    <Compile Include="Data\Map\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\UsuarioRepositorio.cs" />
+    <Compile Include="Repositories\AddressRepository.cs" />
+    <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -64,5 +67,6 @@
       <Name>NAControl.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

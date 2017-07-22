@@ -5,7 +5,7 @@ using System.Web;
 
 namespace NAControl.Api.Models
 {
-    public class ApiUsuario
+    public class ApiUser
     {
         public string Nome { get; set; }
         public string Email { get; set; }

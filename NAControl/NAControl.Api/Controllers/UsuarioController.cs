@@ -14,18 +14,18 @@ using System.Web.Http;
 
 namespace NAControl.Api.Controllers
 {
-    [RoutePrefix("api/usuario")]
-    public class UsuarioController : ApiController
+    [RoutePrefix("api/User")]
+    public class UserController : ApiController
     {
-        private IUsuarioServico _service;
-        public UsuarioController(IUsuarioServico service)
+        private IUserServico _service;
+        public UserController(IUserServico service)
         {
             this._service = service;
         }
 
         [HttpPost]
         [Route("")]
-        public Task<HttpResponseMessage> Post(ApiUsuario model)
+        public Task<HttpResponseMessage> Post(ApiUser model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 

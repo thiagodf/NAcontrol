@@ -5,16 +5,16 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace NAControl.Infraestructure.Data.Map
 {
-    class UsuarioMapa: EntityTypeConfiguration<Usuario>
+    public class UserMap : EntityTypeConfiguration<User>
     {
-        public UsuarioMapa()
+        public UserMap()
         {
-            ToTable("Usuario");
+            ToTable("User");
 
             Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Nome)
+            Property(x => x.Name)
                 .HasMaxLength(60)
                 .IsRequired();
 
@@ -25,9 +25,10 @@ namespace NAControl.Infraestructure.Data.Map
                     new IndexAnnotation(new IndexAttribute("IX_EMAIL", 1) { IsUnique = true }))
                 .IsRequired();
 
-            Property(x => x.Senha)
+            Property(x => x.Password)
                 .HasMaxLength(32)
                 .IsFixedLength();
+
         }
     }
 }

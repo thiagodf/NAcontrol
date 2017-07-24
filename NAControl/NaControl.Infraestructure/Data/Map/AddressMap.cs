@@ -8,9 +8,11 @@ namespace NAControl.Infraestructure.Data.Map
     {
         public AddressMap()
         {
-            ToTable("Address");
+            ToTable("AddAddress");
 
-            Property(x => x.Id)
+            HasKey(x => x.AddId);
+
+            Property(x => x.AddId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Addresses)

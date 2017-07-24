@@ -23,7 +23,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public User Get(Guid id)
         {
-            return _context.Users.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Users.Where(x => x.UseId == id).FirstOrDefault();
         }
 
         public List<User> Get(int skip, int take)

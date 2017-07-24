@@ -1,5 +1,6 @@
 ﻿using NAControl.Common.Resources;
 using NAControl.Common.Validation;
+using System.Collections.Generic;
 
 namespace NAControl.Domain.Models
 {
@@ -12,18 +13,20 @@ namespace NAControl.Domain.Models
         public Group(string name, Address adress)
         {
             this.Name = name;
-            //this.Adress = adress;
+            this.Adress = adress;
         }
 
         #endregion
 
         #region Properties
 
-        public int Id { get; private set; }
+        public int GroId { get; private set; }
 
         public string Name { get; private set; }
 
-        public virtual Address Address { get; private set; }
+        public virtual Address Adress { get; private set; }
+
+        public ICollection<Meeting> MeetingList { get; set; }
 
         #endregion
 

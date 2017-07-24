@@ -13,7 +13,7 @@ namespace NAControl.Domain.Models
 
         public User(string name, string email)
         {
-            this.Id = Guid.NewGuid();
+            this.UseId = Guid.NewGuid();
             this.Name = name;
             this.Email = email;
         }
@@ -22,7 +22,7 @@ namespace NAControl.Domain.Models
 
         #region Properties
 
-        public Guid Id { get; private set; }
+        public Guid UseId { get; private set; }
 
         public string Name { get; private set; }
 

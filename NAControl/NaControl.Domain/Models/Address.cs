@@ -11,7 +11,7 @@
             this.Addresses = address;
         }
 
-        public int Id{ get; private set; }
+        public int AddId{ get; private set; }
 
         public string Addresses { get; private set; }
 
@@ -26,5 +26,7 @@
         public double Latitude { get; private set; }
 
         public double Longitude { get; private set; }
+
+        public Group Group { get; private set; }
     }
 }

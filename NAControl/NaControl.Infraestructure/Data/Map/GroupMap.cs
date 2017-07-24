@@ -8,17 +8,21 @@ namespace NAControl.Infraestructure.Data.Map
     {
         public GroupMap()
         {
-            ToTable("Group");
+            ToTable("GroGroup");
 
-            Property(x => x.Id)
+            HasKey(x => x.GroId);
+
+            Property(x => x.GroId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Name)
                 .HasMaxLength(60)
                 .IsRequired();
 
-            HasRequired(x => x.Address)
-            .WithRequiredPrincipal();
+            HasRequired(ad => ad.Adress)
+            .WithOptional(g => g.Group)
+            .Map(m => m.MapKey("Gro_AddId"));
+
         }
     }
 }

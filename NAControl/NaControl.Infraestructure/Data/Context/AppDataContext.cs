@@ -23,6 +23,11 @@ namespace NAControl.Infraestructure.Data
             modelBuilder.Configurations.Add(new GroupMap());
             modelBuilder.Configurations.Add(new AddressMap());
             modelBuilder.Configurations.Add(new MeetingMap());
+
+            modelBuilder.Properties()
+           .Where(p => p.Name == p.ReflectedType.Name + "Id")
+           .Configure(p => p.IsKey());
+
         }
     }
 }

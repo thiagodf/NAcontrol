@@ -22,7 +22,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public Group Get(int id)
         {
-            return _context.Groups.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Groups.Where(x => x.GroId == id).FirstOrDefault();
         }
 
         public List<Group> Get(int skip, int take)

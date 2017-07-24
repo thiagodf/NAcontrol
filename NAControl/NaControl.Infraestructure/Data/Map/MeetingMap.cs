@@ -8,9 +8,11 @@ namespace NAControl.Infraestructure.Data.Map
     {
         public MeetingMap()
         {
-            ToTable("Meeting");
+            ToTable("MeeMeeting");
 
-            Property(x => x.Id)
+            HasKey(x => x.MeeId);
+
+            Property(x => x.MeeId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Private)
@@ -25,8 +27,9 @@ namespace NAControl.Infraestructure.Data.Map
             Property(x => x.Day)
             .IsRequired();
 
-            HasRequired(x => x.Group)
-            .WithRequiredPrincipal();
+            HasRequired(ad => ad.Group)
+                .WithMany(g => g.MeetingList)
+              .Map(m => m.MapKey("Mee_GroId"));
         }
     }
 }

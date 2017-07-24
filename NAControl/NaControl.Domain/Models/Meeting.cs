@@ -21,7 +21,7 @@ namespace NAControl.Domain.Models
 
         #region Properties
 
-        public int Id { get; private set; }
+        public int MeeId { get; private set; }
 
         public bool Private { get; private set; }
 

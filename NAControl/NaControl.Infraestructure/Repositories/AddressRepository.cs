@@ -18,7 +18,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public Address Get(int id)
         {
-            return _context.Addresses.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Addresses.Where(x => x.AddId == id).FirstOrDefault();
         }
 
         public void Create(Address Address)

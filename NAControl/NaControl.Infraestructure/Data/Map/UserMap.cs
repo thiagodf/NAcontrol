@@ -9,9 +9,11 @@ namespace NAControl.Infraestructure.Data.Map
     {
         public UserMap()
         {
-            ToTable("User");
+            ToTable("UseUser");
 
-            Property(x => x.Id)
+            HasKey(x => x.UseId);
+
+            Property(x => x.UseId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.Name)

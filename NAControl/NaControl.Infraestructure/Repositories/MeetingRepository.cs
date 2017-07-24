@@ -23,7 +23,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public Meeting Get(int id)
         {
-            return _context.Meetings.Where(x => x.Id == id).FirstOrDefault();
+            return _context.Meetings.Where(x => x.MeeId == id).FirstOrDefault();
         }
 
         public List<Meeting> Get(int skip, int take)

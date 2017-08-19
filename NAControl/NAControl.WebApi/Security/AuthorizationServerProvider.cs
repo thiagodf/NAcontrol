@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin.Security.OAuth;
+using NAControl.Common.Resources;
 using NAControl.Domain.Contracts.Services;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace NAControl.WebApi.Security
 
                 if (user == null)
                 {
-                    context.SetError("invalid_grant", /*Errors.InvalidCredentials*/ "Erro");
+                    context.SetError("invalid_grant", Errors.InvalidCredentials);
                     return;
                 }
 
@@ -51,7 +52,7 @@ namespace NAControl.WebApi.Security
             }
             catch (Exception ex)
             {
-                context.SetError("invalid_grant", /*Errors.InvalidCredentials*/"Erro");
+                context.SetError("invalid_grant", Errors.InvalidCredentials);
             }
         }
     }

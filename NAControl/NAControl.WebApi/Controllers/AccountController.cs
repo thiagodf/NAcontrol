@@ -1,4 +1,5 @@
-﻿using NAControl.Domain.Contracts.Services;
+﻿using NAControl.Common.Resources;
+using NAControl.Domain.Contracts.Services;
 using NAControl.WebApi.Models.Account;
 using System;
 using System.Net;
@@ -72,7 +73,7 @@ namespace NAControl.WebApi.Controllers
             try
             {
                 _service.ChangePassword(User.Identity.Name, model.Password, model.NewPassword, model.ConfirmNewPassword);
-                response = Request.CreateResponse(HttpStatusCode.OK, /*Messages.PasswordSuccessfulyChanges*/"Erro");
+                response = Request.CreateResponse(HttpStatusCode.OK, Messages.PasswordSuccessfulyChanges);
             }
             catch (Exception ex)
             {
@@ -93,7 +94,7 @@ namespace NAControl.WebApi.Controllers
             try
             {
                 var password = _service.ResetPassword(model.Email);
-                response = Request.CreateResponse(HttpStatusCode.OK, String.Format(/*Messages.ResetPasswordEmailBody*/"Erro", password));
+                response = Request.CreateResponse(HttpStatusCode.OK, String.Format(Messages.ResetPasswordEmailBody, password));
             }
             catch (Exception ex)
             {

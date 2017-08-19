@@ -1,5 +1,4 @@
 ﻿using NAControl.Domain.Contracts.Services;
-using NAControl.WebApi.Attributes;
 using NAControl.WebApi.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +10,7 @@ using System.Web.Http;
 
 namespace NAControl.WebApi.Controllers
 {
+    [RoutePrefix("api/Group")]
     public class GroupController : ApiController
     {
         private IGroupService _service;
@@ -21,6 +21,7 @@ namespace NAControl.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         //[DeflateCompression]
         //[CacheOutput(ClientTimeSpan = 100, ServerTimeSpan = 100)] //Install-Package Strathweb.CacheOutput.WebApi2
         public Task<HttpResponseMessage> Get()
@@ -63,14 +64,9 @@ namespace NAControl.WebApi.Controllers
         //    return tsc.Task;
         //}
 
-        // PUT: api/Group/5
-        public void Put(int id, [FromBody]string value)
+        protected override void Dispose(bool disposing)
         {
-        }
-
-        // DELETE: api/Group/5
-        public void Delete(int id)
-        {
+            _service.Dispose();
         }
     }
 }

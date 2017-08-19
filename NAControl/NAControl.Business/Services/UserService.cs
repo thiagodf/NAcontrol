@@ -1,4 +1,6 @@
-﻿using NAControl.Domain.Contracts.Repositories;
+﻿using NAControl.Common.Resources;
+using NAControl.Common.Validation;
+using NAControl.Domain.Contracts.Repositories;
 using NAControl.Domain.Contracts.Services;
 using NAControl.Domain.Models;
 using System;
@@ -19,8 +21,8 @@ namespace NAControl.Business.Services
         {
             var User = GetByEmail(email);
 
-            if (User.Password != /*PasswordAssertionConcern.Encrypt(senha)*/ "")
-                throw new Exception(/*Errors.InvalidCredentials*/ "");
+            if (User.Password != PasswordAssertionConcern.Encrypt(senha))
+                throw new Exception(Errors.InvalidCredentials);
 
             return User;
         }
@@ -49,7 +51,7 @@ namespace NAControl.Business.Services
         {
             var hasUser = _repository.Get(email);
             if (hasUser != null)
-                throw new Exception(/*Errors.DuplicateEmail*/"");
+                throw new Exception(Errors.DuplicateEmail);
 
             var User = new User(nome, email);
             User.setPassword(senha, confirmaSenha);
@@ -62,7 +64,7 @@ namespace NAControl.Business.Services
         {
             var User = _repository.Get(email);
             if (User == null)
-                throw new Exception(/*Errors.UserNotFound*/"");
+                throw new Exception(Errors.UserNotFound);
 
             return User;
         }

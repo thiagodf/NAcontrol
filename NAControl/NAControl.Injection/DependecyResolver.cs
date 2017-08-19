@@ -22,6 +22,11 @@ namespace NAControl.Injection
             container.RegisterType<IUserService, UserService>(new HierarchicalLifetimeManager());
 
             container.RegisterType<User, User>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<IGroupRepository, GroupRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IGroupService, GroupService>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<Group, Group>(new HierarchicalLifetimeManager());
         }
     }
 }

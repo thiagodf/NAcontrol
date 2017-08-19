@@ -1,13 +1,8 @@
-﻿using NAControl.Common.Resources;
-using NAControl.Common.Validation;
-using NAControl.Domain.Contracts.Repositories;
+﻿using NAControl.Domain.Contracts.Repositories;
 using NAControl.Domain.Contracts.Services;
 using NAControl.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NAControl.Business.Services
 {

@@ -1,5 +1,6 @@
 ﻿using NAControl.Domain.Contracts.Services;
 using NAControl.Web_Api.Attributes;
+using NAControl.Web_Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,27 @@ namespace NAControl.Web_Api.Controllers
             tsc.SetResult(response);
             return tsc.Task;
         }
+
+        //[HttpPost]
+        //[Route("")]
+        //public Task<HttpResponseMessage> Post(Group model)
+        //{
+        //    HttpResponseMessage response = new HttpResponseMessage();
+
+        //    try
+        //    {
+        //        _service.(model.Name, model.Email, model.Password, model.ConfirmPassword);
+        //        response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, email = model.Email });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
+
+        //    var tsc = new TaskCompletionSource<HttpResponseMessage>();
+        //    tsc.SetResult(response);
+        //    return tsc.Task;
+        //}
 
     }
 }

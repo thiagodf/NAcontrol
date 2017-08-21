@@ -48,5 +48,21 @@ namespace NAControl.Business.Services
         {
             _repository.Dispose();
         }
+
+        public void Register(string name, Address address)
+        {
+            var hasGroup = _repository.Get(name);
+            if (hasGroup != null)
+                throw new Exception(Errors.DuplicateEmail);
+
+            var User = new Group(name, address);
+
+            _repository.Create(User);
+        }
+
+        public void Register(string name, string address)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

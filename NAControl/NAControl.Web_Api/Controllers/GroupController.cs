@@ -52,7 +52,7 @@ namespace NAControl.Web_Api.Controllers
 
         //    try
         //    {
-        //        _service.(model.Name, model.Email, model.Password, model.ConfirmPassword);
+        //        _service.Register(model.GroId, model.Name, model.Adress, model.MeetingList);
         //        response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, email = model.Email });
         //    }
         //    catch (Exception ex)

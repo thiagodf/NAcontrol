@@ -1,4 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Practices.Unity;
+using NAControl.Business.Services;
+using NAControl.Domain.Contracts.Repositories;
+using NAControl.Domain.Contracts.Services;
+using NAControl.Infraestructure.Repositories;
+using NAControl.Injection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
@@ -10,7 +16,14 @@ namespace NAControl.Web.Api
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        { 
+        {
+            var container = new UnityContainer();
+            DependencyResolver.Resolve(container);
+            container.RegisterType<IGroupRepository, GroupRepository>();
+            container.RegisterType<IGroupService, GroupService>();
+            
+            container.Resolve<IGroupService>();
+
             // Remove o XML
             var formatters = config.Formatters;
             formatters.Remove(formatters.XmlFormatter);

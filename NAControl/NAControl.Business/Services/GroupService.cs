@@ -5,14 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NAControl.Domain.Models;
+using NAControl.Common.Resources;
+using NAControl.Domain.Contracts.Repositories;
 
 namespace NAControl.Business.Services
 {
     public class GroupService : IGroupService
     {
-        private IGroupService _repository;
 
-        public GroupService(IGroupService repository)
+        private IGroupRepository _repository;
+
+        public GroupService(IGroupRepository repository)
         {
             _repository = repository;
         }
@@ -29,12 +32,16 @@ namespace NAControl.Business.Services
 
         public Group GetByName(string name)
         {
-            throw new NotImplementedException();
+            var hasGroup = _repository.Get(name);
+            if (hasGroup == null)
+                throw new Exception(Errors.UserNotFound);
+
+            return hasGroup;
         }
 
         public List<Group> GetByRange(int skip, int take)
         {
-            throw new NotImplementedException();
+            return _repository.Get(skip, take);
         }
 
         public void Dispose()

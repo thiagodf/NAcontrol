@@ -23,7 +23,7 @@ namespace NAControl.Web_Api.Controllers
 
         [HttpGet]
         [Route("")]
-        [DeflateCompression]
+        //[DeflateCompression]
         //[CacheOutput(ClientTimeSpan = 100, ServerTimeSpan = 100)] //Install-Package Strathweb.CacheOutput.WebApi2
         public Task<HttpResponseMessage> Get()
         {
@@ -44,26 +44,50 @@ namespace NAControl.Web_Api.Controllers
             return tsc.Task;
         }
 
-        //[HttpPost]
-        //[Route("")]
-        //public Task<HttpResponseMessage> Post(Group model)
-        //{
-        //    HttpResponseMessage response = new HttpResponseMessage();
+        //Busca por Nome do Grupo
+        //http://localhost:1608/api/group/consulta/grupoPorNome/e
+        [HttpGet]
+        [Route("consulta/grupoPorNome/{name:alpha}")]
+        public Task<HttpResponseMessage> Get(string name)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
 
-        //    try
-        //    {
-        //        _service.Register(model.GroId, model.Name, model.Adress, model.MeetingList);
-        //        response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, email = model.Email });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-        //    }
+            try
+            {
+                var result = _service.GetByName(name);
+                response = Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
 
-        //    var tsc = new TaskCompletionSource<HttpResponseMessage>();
-        //    tsc.SetResult(response);
-        //    return tsc.Task;
-        //}
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+
+        [HttpPost]
+        [Route("")]
+        public Task<HttpResponseMessage> Post(Group model)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                _service.Register(model.Name);
+                response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name});
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
 
     }
 }

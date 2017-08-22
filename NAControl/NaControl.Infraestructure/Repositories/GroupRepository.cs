@@ -20,6 +20,7 @@ namespace NAControl.Infraestructure.Repositories
             return _context.Groups.Where(x => x.Name.ToLower() == name.ToLower()).FirstOrDefault();
         }
 
+
         public Group Get(int id)
         {
             return _context.Groups.Where(x => x.GroId == id).FirstOrDefault();

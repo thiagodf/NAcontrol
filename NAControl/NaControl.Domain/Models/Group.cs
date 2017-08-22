@@ -10,10 +10,10 @@ namespace NAControl.Domain.Models
 
         public Group(){ }
 
-        public Group(string name, Address adress)
+        public Group(string name)
         {
             this.Name = name;
-            this.Adress = adress;
+            
         }
 
         #endregion

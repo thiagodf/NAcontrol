@@ -21,11 +21,11 @@ namespace NAControl.Web_Api.Models
 
         #region Properties
 
-        public int GroId { get; private set; }
+        public int GroId { get;  set; }
 
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
-        public virtual Address Adress { get; private set; }
+        public virtual Address Adress { get; set; }
 
         public ICollection<Meeting> MeetingList { get; set; }
 

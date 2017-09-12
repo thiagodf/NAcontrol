@@ -58,10 +58,13 @@
     <Compile Include="Repositories\AddressRepository.cs" />
     <Compile Include="Repositories\GroupRepository.cs" />
     <Compile Include="Repositories\MeetingRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

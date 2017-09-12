@@ -44,8 +44,12 @@
     <Compile Include="Contracts\Repositories\IAddressRepository.cs" />
     <Compile Include="Contracts\Repositories\IGroupRepository.cs" />
     <Compile Include="Contracts\Repositories\IMeetingRepository.cs" />
+    <Compile Include="Contracts\Repositories\IRepositoryBase.cs" />
     <Compile Include="Contracts\Repositories\IUserRepository.cs" />
+    <Compile Include="Contracts\Services\IAddressService.cs" />
     <Compile Include="Contracts\Services\IGroupService.cs" />
+    <Compile Include="Contracts\Services\IMeetingService.cs" />
+    <Compile Include="Contracts\Services\IServiceBase.cs" />
     <Compile Include="Contracts\Services\IUserService.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Group.cs" />

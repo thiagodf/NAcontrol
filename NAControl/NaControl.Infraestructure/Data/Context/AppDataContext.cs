@@ -1,6 +1,7 @@
 ﻿using NAControl.Domain.Models;
 using NAControl.Infraestructure.Data.Map;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace NAControl.Infraestructure.Data
 {
@@ -19,14 +20,24 @@ namespace NAControl.Infraestructure.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new UserMap());
-            modelBuilder.Configurations.Add(new GroupMap());
-            modelBuilder.Configurations.Add(new AddressMap());
-            modelBuilder.Configurations.Add(new MeetingMap());
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Properties()
            .Where(p => p.Name == p.ReflectedType.Name + "Id")
            .Configure(p => p.IsKey());
+
+            modelBuilder.Properties<string>()
+            .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new GroupMap());
+            modelBuilder.Configurations.Add(new AddressMap());
+            modelBuilder.Configurations.Add(new MeetingMap());
 
         }
     }

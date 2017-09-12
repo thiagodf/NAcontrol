@@ -36,6 +36,7 @@ namespace NAControl.Infraestructure.Data.Map
             Property(x => x.Latitude);
 
             Property(x => x.Longitude);
+
         }
     }
 }

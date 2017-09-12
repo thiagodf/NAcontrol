@@ -32,6 +32,7 @@ namespace NAControl.Web_Api.Controllers
             try
             {
                 var result = _service.GetByRange(0, 25);
+                //var result = _service.GetAll();
                 response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)

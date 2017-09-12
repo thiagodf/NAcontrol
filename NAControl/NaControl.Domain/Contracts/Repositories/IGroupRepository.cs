@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace NAControl.Domain.Contracts.Repositories
 {
-    public interface IGroupRepository: IDisposable
+    public interface IGroupRepository: IRepositoryBase<Group>
     {
         Group Get(string name);
-        Group Get(int id);
+        //Group Get(int id);
         List<Group> Get(int skip, int take);
-        void Create(Group Group);
-        void Update(Group Group);
-        void Delete(Group Group);
+        //void Create(Group Group);
+        //void Update(Group Group);
+        //void Delete(Group Group);
     }
 }

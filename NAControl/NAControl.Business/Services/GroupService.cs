@@ -44,10 +44,10 @@ namespace NAControl.Business.Services
             return _repository.Get(skip, take);
         }
 
-        public void Dispose()
-        {
-            _repository.Dispose();
-        }
+        //public void Dispose()
+        //{
+        //    _repository.Dispose();
+        //}
 
         public void Register(string name)
         {
@@ -57,7 +57,32 @@ namespace NAControl.Business.Services
 
             var User = new Group(name);
 
-            _repository.Create(User);
+            _repository.Add(User);
+        }
+
+        public void Add(Group obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Group> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
+        public void Update(Group obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(Group obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
 
     }

@@ -31,6 +31,8 @@ namespace NAControl.Domain.Models
 
         public DateTime End { get; private set; }
 
+        //public int Mee_GrouId { get; private set; }
+
         public Group Group { get; set; }
 
         #endregion

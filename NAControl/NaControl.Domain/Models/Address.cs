@@ -1,4 +1,6 @@
-﻿namespace NAControl.Domain.Models
+﻿using System.Collections.Generic;
+
+namespace NAControl.Domain.Models
 {
     public class Address
     {
@@ -6,9 +8,13 @@
         {
 
         }
-        public Address(string address,string complement, string city, double latitude, double longitude )
+        public Address(string address,string complement, string city, double latitude, double longitude)
         {
             this.Addresses = address;
+            this.Complement = complement;
+            this.City = city;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
         }
 
         public int AddId{ get; private set; }
@@ -27,6 +33,7 @@
 
         public double Longitude { get; private set; }
 
-        public Group Group { get; private set; }
+        public virtual IEnumerable<Group> Group { get; private set; }
+
     }
 }

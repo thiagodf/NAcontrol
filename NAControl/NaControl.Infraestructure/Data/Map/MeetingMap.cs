@@ -29,7 +29,11 @@ namespace NAControl.Infraestructure.Data.Map
 
             HasRequired(ad => ad.Group)
                 .WithMany(g => g.MeetingList)
-              .Map(m => m.MapKey("Mee_GroId"));
+              .Map(m => m.MapKey("Mee_GrouId"));
+
+            //HasRequired(p => p.Group)
+            // .WithMany()
+            // .HasForeignKey(p => p.Mee_GrouId);
         }
     }
 }

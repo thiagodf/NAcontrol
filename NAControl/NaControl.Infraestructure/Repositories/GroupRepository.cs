@@ -22,7 +22,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public Group Get(string name)
         {
-            return _context.Groups.Where(x => x.Name.ToLower() == name.ToLower()).FirstOrDefault();
+            return _context.Groups.Include("Address").Include("MeetingList").Where(x => x.Name.ToLower() == name.ToLower()).FirstOrDefault();
         }
 
 

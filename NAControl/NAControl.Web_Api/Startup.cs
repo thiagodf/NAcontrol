@@ -58,6 +58,13 @@ namespace NAControl.Web_Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "ApiByName",
+                routeTemplate: "api/{controller}/{action}/{name}",
+                defaults: null,
+                constraints: new { name = @"^[a-z]+$" }
+            );
         }
 
         public void ConfigureOAuth(IAppBuilder app, IUserService service)

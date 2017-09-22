@@ -27,7 +27,7 @@ namespace NAControl.Business.Services
 
         public Group GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public Group GetByName(string name)
@@ -44,25 +44,20 @@ namespace NAControl.Business.Services
             return _repository.Get(skip, take);
         }
 
-        //public void Dispose()
-        //{
-        //    _repository.Dispose();
-        //}
-
         public void Register(string name)
         {
             var hasGroup = _repository.Get(name);
             if (hasGroup != null)
                 throw new Exception(Errors.DuplicateEmail);
 
-            var User = new Group(name);
+            var group = new Group(name);
 
-            _repository.Add(User);
+            _repository.Add(group);
         }
 
         public void Add(Group obj)
         {
-            throw new NotImplementedException();
+            _repository.Add(obj);
         }
 
         public IEnumerable<Group> GetAll()
@@ -72,17 +67,17 @@ namespace NAControl.Business.Services
 
         public void Update(Group obj)
         {
-            throw new NotImplementedException();
+            _repository.Update(obj);
         }
 
         public void Remove(Group obj)
         {
-            throw new NotImplementedException();
+            _repository.Remove(obj);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _repository.Dispose();
         }
 
     }

@@ -47,7 +47,7 @@ namespace NAControl.Infraestructure.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
     }
 }

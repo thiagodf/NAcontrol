@@ -48,8 +48,9 @@ namespace NAControl.Web_Api.Controllers
         //Busca por Nome do Grupo
         //http://localhost:1608/api/group/consulta/grupoPorNome/e
         [HttpGet]
-        [Route("consulta/grupoPorNome/{name:alpha}")]
-        public Task<HttpResponseMessage> Get(string name)
+        //[Route("consulta/grupoPorNome/{name:alpha}")]
+        [Route("consulta/groupByName/{name}")]
+        public Task<HttpResponseMessage> GetByName(string name)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 

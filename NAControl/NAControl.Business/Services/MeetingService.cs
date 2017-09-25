@@ -20,30 +20,40 @@ namespace NAControl.Business.Services
 
         public void Add(Meeting obj)
         {
-            throw new NotImplementedException();
+            _repository.Add(obj);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _repository.Dispose();
         }
 
         public IEnumerable<Meeting> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
+        }
+
+        public List<Meeting> GetByRange(int skip, int take)
+        {
+            return _repository.Get(skip, take);
         }
 
         public Meeting GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public void Remove(Meeting obj)
         {
-            throw new NotImplementedException();
+            _repository.Remove(obj);
         }
 
         public void Update(Meeting obj)
+        {
+            _repository.Update(obj);
+        }
+
+        public void Register(string name)
         {
             throw new NotImplementedException();
         }

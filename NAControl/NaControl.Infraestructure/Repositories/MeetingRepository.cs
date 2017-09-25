@@ -9,13 +9,17 @@ namespace NAControl.Infraestructure.Repositories
 {
     public class MeetingRepository : RepositoryBase<Meeting>, IMeetingRepository
     {
-        //AppDataContext _context;
+        private AppDataContext _context;
 
-        //public MeetingRepository(AppDataContext _context)
+        //public GroupRepository(AppDataContext _context)
         //{
         //    this._context = _context;
         //}
-
+        public MeetingRepository(AppDataContext _context)
+            : base(_context)
+        {
+            this._context = _context;
+        }
         //public Meeting Get(Group group)
         //{
         //    return _context.Meetings.Where(x => x.Group == group).FirstOrDefault();
@@ -26,10 +30,10 @@ namespace NAControl.Infraestructure.Repositories
         //    return _context.Meetings.Where(x => x.MeeId == id).FirstOrDefault();
         //}
 
-        //public List<Meeting> Get(int skip, int take)
-        //{
-        //    return _context.Meetings.OrderBy(x => x.Group).Skip(skip).Take(take).ToList();
-        //}
+        public List<Meeting> Get(int skip, int take)
+        {
+            return _context.Meetings.Include("Group.Address").OrderBy(x => x.Group.Name).Skip(skip).Take(take).ToList();
+        }
 
         //public void Create(Meeting Meeting)
         //{
@@ -53,8 +57,5 @@ namespace NAControl.Infraestructure.Repositories
         //{
         //    _context.Dispose();
         //}
-        public MeetingRepository(AppDataContext _context) : base(_context)
-        {
-        }
     }
 }

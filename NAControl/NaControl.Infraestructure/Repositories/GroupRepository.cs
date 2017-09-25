@@ -34,7 +34,7 @@ namespace NAControl.Infraestructure.Repositories
         public List<Group> Get(int skip, int take)
         {
             //return _context.Groups.OrderBy(x => x.Name).Skip(skip).Take(take).ToList();
-            return _context.Groups.Include("Address").Include("MeetingList").ToList();
+            return _context.Groups.Include("Address").Include("MeetingList").ToList().OrderBy(x => x.Name).Skip(skip).Take(take).ToList();
 
 
             //(db.UsersInRoles, u => u.UserId, uir => uir.UserId,

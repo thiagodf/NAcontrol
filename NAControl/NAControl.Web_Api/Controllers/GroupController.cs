@@ -71,8 +71,8 @@ namespace NAControl.Web_Api.Controllers
 
 
         [HttpPost]
-        [Route("")]
-        public Task<HttpResponseMessage> Post(Group model)
+        [Route("create")]
+        public Task<HttpResponseMessage> Post([FromBody]Group model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 

@@ -6,11 +6,10 @@ namespace NAControl.Domain.Contracts.Repositories
 {
     public interface IMeetingRepository: IRepositoryBase<Meeting>
     {
-        //Meeting Get(Group group);
-        //Meeting Get(int id);
-        //List<Meeting> Get(int skip, int take);
-        //void Create(Meeting Meeting);
-        //void Update(Meeting Meeting);
-        //void Delete(Meeting Meeting);
+        //Group Get(int id);
+        List<Meeting> Get(int skip, int take);
+        //void Create(Group Group);
+        //void Update(Group Group);
+        //void Delete(Group Group);
     }
 }

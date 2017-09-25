@@ -30,6 +30,7 @@ namespace NAControl.Web_Api
             ConfigureWebApi(config);
 
             container.Resolve<IGroupService>();
+            container.Resolve<IMeetingService>();
             ConfigureOAuth(app, container.Resolve<IUserService>());
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);

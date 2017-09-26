@@ -72,12 +72,13 @@ namespace NAControl.Web_Api.Controllers
 
         [HttpPost]
         [Route("create")]
-        public Task<HttpResponseMessage> Post([FromBody]Group model)
+        public Task<HttpResponseMessage> Post([FromBody]dynamic model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 
             try
             {
+                Group grupo;
                 _service.Register(model.Name);
                 response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name});
             }

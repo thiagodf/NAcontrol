@@ -11,10 +11,10 @@ namespace NAControl.Web_Api.Models
 
         public Group() { }
 
-        public Group(string name, Address adress)
+        public Group(string name, Address address)
         {
             this.Name = name;
-            this.Adress = adress;
+            this.Address = address;
         }
 
         #endregion
@@ -25,7 +25,7 @@ namespace NAControl.Web_Api.Models
 
         public string Name { get;  set; }
 
-        public virtual Address Adress { get; set; }
+        public virtual Address Address { get; set; }
 
         public ICollection<Meeting> MeetingList { get; set; }
 

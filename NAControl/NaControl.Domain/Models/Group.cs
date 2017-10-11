@@ -10,11 +10,11 @@ namespace NAControl.Domain.Models
 
         public Group(){ }
 
-        public Group(string name)
+        public Group(string name, Address address, ICollection<Meeting> meetingList)
         {
             this.Name = name;
-            this.Address = new Address();
-            
+            this.Address = address;
+            this.MeetingList = meetingList;
         }
 
         #endregion
@@ -29,13 +29,13 @@ namespace NAControl.Domain.Models
 
         public virtual Address Address { get; private set; }
 
-        public ICollection<Meeting> MeetingList { get; set; }
+        public ICollection<Meeting> MeetingList { get; private set; }
 
         #endregion
 
         #region Methods
 
-        public void AlteraNome(string name)
+        public void ChangeNome(string name)
         {
             this.Name = name;
         }

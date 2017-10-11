@@ -1,5 +1,8 @@
 ﻿using Microsoft.Practices.Unity;
 using NAControl.Business.Services;
+using NAControl.Domain.Commands.Handlers;
+using NAControl.Domain.Commands.Inputs;
+using NAControl.Domain.Commands.Results;
 using NAControl.Domain.Contracts.Repositories;
 using NAControl.Domain.Contracts.Services;
 using NAControl.Domain.Models;
@@ -29,7 +32,10 @@ namespace NAControl.Injection
             container.RegisterType<IGroupRepository, GroupRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IGroupService, GroupService>(new HierarchicalLifetimeManager());
             container.RegisterType<Group, Group>(new HierarchicalLifetimeManager());
-
+            container.RegisterType<GroupCommandHandler, GroupCommandHandler>(new HierarchicalLifetimeManager());
+            container.RegisterType<RegisterGroupCommand, RegisterGroupCommand>(new HierarchicalLifetimeManager());
+            container.RegisterType<RegisterGroupCommandResult, RegisterGroupCommandResult>(new HierarchicalLifetimeManager());
+            
             //Meeting
             container.RegisterType<IMeetingRepository, MeetingRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IMeetingService, MeetingService>(new HierarchicalLifetimeManager());

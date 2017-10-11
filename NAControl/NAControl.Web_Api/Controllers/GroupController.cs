@@ -1,9 +1,8 @@
-﻿using NAControl.Domain.Contracts.Services;
-using NAControl.Web_Api.Attributes;
-using NAControl.Web_Api.Models;
+﻿using NAControl.Domain.Commands.Handlers;
+using NAControl.Domain.Commands.Inputs;
+using NAControl.Domain.Contracts.Services;
+using NAControl.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,11 +13,13 @@ namespace NAControl.Web_Api.Controllers
     [RoutePrefix("api/group")]
     public class GroupController : ApiController
     {
+        private readonly GroupCommandHandler _handler;
         private IGroupService _service;
 
-        public GroupController(IGroupService service)
+        public GroupController(IGroupService service, GroupCommandHandler handler)
         {
             _service = service;
+            _handler = handler;
         }
 
         [HttpGet]
@@ -72,13 +73,15 @@ namespace NAControl.Web_Api.Controllers
 
         [HttpPost]
         [Route("create")]
-        public Task<HttpResponseMessage> Post([FromBody]dynamic model)
+        [AllowAnonymous]
+        public Task<HttpResponseMessage> Post([FromBody]RegisterGroupCommand model)
         {
+            var result = _handler.Handle(model);
             HttpResponseMessage response = new HttpResponseMessage();
 
             try
             {
-                Group grupo;
+               // _service.Add(model);
                 _service.Register(model.Name);
                 response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name});
             }
@@ -91,6 +94,5 @@ namespace NAControl.Web_Api.Controllers
             tsc.SetResult(response);
             return tsc.Task;
         }
-
     }
 }

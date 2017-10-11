@@ -50,7 +50,7 @@ namespace NAControl.Business.Services
             if (hasGroup != null)
                 throw new Exception(Errors.DuplicateEmail);
 
-            var group = new Group(name);
+            var group = new Group();
 
             _repository.Add(group);
         }

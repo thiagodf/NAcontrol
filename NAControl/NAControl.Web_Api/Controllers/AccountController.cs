@@ -1,12 +1,4 @@
-﻿using NAControl.Common.Resources;
-using NAControl.Domain.Contracts.Services;
-using NAControl.Web_Api.Models.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using NAControl.Domain.Contracts.Services;
 using System.Web.Http;
 
 namespace NAControl.Web_Api.Controllers
@@ -21,26 +13,26 @@ namespace NAControl.Web_Api.Controllers
             this._service = service;
         }
 
-        [HttpPost]
-        [Route("")]
-        public Task<HttpResponseMessage> Post(RegisterUserModel model)
-        {
-            HttpResponseMessage response = new HttpResponseMessage();
+        //[HttpPost]
+        //[Route("")]
+        //public Task<HttpResponseMessage> Post(RegisterUserModel model)
+        //{
+        //    HttpResponseMessage response = new HttpResponseMessage();
 
-            try
-            {
-                _service.Register(model.Name, model.Email, model.Password, model.ConfirmPassword);
-                response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, email = model.Email });
-            }
-            catch (Exception ex)
-            {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
+        //    try
+        //    {
+        //        _service.Register(model.Name, model.Email, model.Password, model.ConfirmPassword);
+        //        response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, email = model.Email });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
 
-            var tsc = new TaskCompletionSource<HttpResponseMessage>();
-            tsc.SetResult(response);
-            return tsc.Task;
-        }
+        //    var tsc = new TaskCompletionSource<HttpResponseMessage>();
+        //    tsc.SetResult(response);
+        //    return tsc.Task;
+        //}
 
         //[Authorize]
         //[HttpPut]
@@ -64,48 +56,48 @@ namespace NAControl.Web_Api.Controllers
         //    return tsc.Task;
         //}
 
-        [Authorize]
-        [HttpPost]
-        [Route("changepassword")]
-        public Task<HttpResponseMessage> ChangePassword(ChangePasswordModel model)
-        {
-            HttpResponseMessage response = new HttpResponseMessage();
+        //[Authorize]
+        //[HttpPost]
+        //[Route("changepassword")]
+        //public Task<HttpResponseMessage> ChangePassword(ChangePasswordModel model)
+        //{
+        //    HttpResponseMessage response = new HttpResponseMessage();
 
-            try
-            {
-                _service.ChangePassword(User.Identity.Name, model.Password, model.NewPassword, model.ConfirmNewPassword);
-                response = Request.CreateResponse(HttpStatusCode.OK, Messages.PasswordSuccessfulyChanges);
-            }
-            catch (Exception ex)
-            {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
+        //    try
+        //    {
+        //        _service.ChangePassword(User.Identity.Name, model.Password, model.NewPassword, model.ConfirmNewPassword);
+        //        response = Request.CreateResponse(HttpStatusCode.OK, Messages.PasswordSuccessfulyChanges);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
 
-            var tsc = new TaskCompletionSource<HttpResponseMessage>();
-            tsc.SetResult(response);
-            return tsc.Task;
-        }
+        //    var tsc = new TaskCompletionSource<HttpResponseMessage>();
+        //    tsc.SetResult(response);
+        //    return tsc.Task;
+        //}
 
-        [HttpPost]
-        [Route("resetpassword")]
-        public Task<HttpResponseMessage> ResetPassword(ResetPasswordModel model)
-        {
-            HttpResponseMessage response = new HttpResponseMessage();
+        //[HttpPost]
+        //[Route("resetpassword")]
+        //public Task<HttpResponseMessage> ResetPassword(ResetPasswordModel model)
+        //{
+        //    HttpResponseMessage response = new HttpResponseMessage();
 
-            try
-            {
-                var password = _service.ResetPassword(model.Email);
-                response = Request.CreateResponse(HttpStatusCode.OK, String.Format(Messages.ResetPasswordEmailBody, password));
-            }
-            catch (Exception ex)
-            {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
-            }
+        //    try
+        //    {
+        //        var password = _service.ResetPassword(model.Email);
+        //        response = Request.CreateResponse(HttpStatusCode.OK, String.Format(Messages.ResetPasswordEmailBody, password));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+        //    }
 
-            var tsc = new TaskCompletionSource<HttpResponseMessage>();
-            tsc.SetResult(response);
-            return tsc.Task;
-        }
+        //    var tsc = new TaskCompletionSource<HttpResponseMessage>();
+        //    tsc.SetResult(response);
+        //    return tsc.Task;
+        //}
 
         protected override void Dispose(bool disposing)
         {

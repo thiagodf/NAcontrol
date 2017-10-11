@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Handlers\GroupCommandHandler.cs" />
+    <Compile Include="Commands\Inputs\RegisterGroupCommand.cs" />
+    <Compile Include="Commands\Results\RegisterGroupCommandResult.cs" />
     <Compile Include="Contracts\Repositories\IAddressRepository.cs" />
     <Compile Include="Contracts\Repositories\IGroupRepository.cs" />
     <Compile Include="Contracts\Repositories\IMeetingRepository.cs" />

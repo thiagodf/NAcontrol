@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NAControl.Web_Api.DTOs
+namespace NAControl.Business.DTOs
 {
     public class AddressDTO
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace NAControl.Domain.Models
 {
-    public class Group
+    public class Group : BaseModel
     {
         #region Ctor
 

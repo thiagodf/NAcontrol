@@ -195,10 +195,6 @@
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="DTOs\AddressDTO.cs" />
-    <Compile Include="DTOs\GroupDTO.cs" />
-    <Compile Include="DTOs\MeetingDTO.cs" />
-    <Compile Include="DTOs\UserDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +209,10 @@
     <Folder Include="Views\Meeting\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NAControl.Business\NAControl.Business.csproj">
+      <Project>{B5A7E755-0DD3-4B32-A261-17984286C009}</Project>
+      <Name>NAControl.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NAControl.Common\NAControl.Common.csproj">
       <Project>{33C11CA0-7B5A-44F9-8A7C-2711EC1A9705}</Project>
       <Name>NAControl.Common</Name>

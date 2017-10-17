@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using NAControl.Domain.Models;
 using NAControl.Common.Resources;
 using NAControl.Domain.Contracts.Repositories;
+using NAControl.Business.DTOs;
 
 namespace NAControl.Business.Services
 {
@@ -44,13 +45,12 @@ namespace NAControl.Business.Services
             return _repository.Get(skip, take);
         }
 
-        public void Register(string name)
+        public void Register(object obj)
         {
-            var hasGroup = _repository.Get(name);
+            var group = ConvertDTO(obj);
+            var hasGroup = _repository.Get(group.Name);
             if (hasGroup != null)
                 throw new Exception(Errors.DuplicateEmail);
-
-            var group = new Group();
 
             _repository.Add(group);
         }
@@ -80,5 +80,20 @@ namespace NAControl.Business.Services
             _repository.Dispose();
         }
 
+        public Group ConvertDTO(object obj)
+        {
+            GroupDTO model = (GroupDTO)obj;
+            Address address = new Address(model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
+            List<Meeting> listMeeting = new List<Meeting>();
+
+            foreach (var item in model.MeetingList)
+            {
+                Meeting meeting = new Meeting(item.Private, item.Day, item.Start, item.End, null);
+                listMeeting.Add(meeting);
+            }
+
+            var group = new Group(model.Name, address, listMeeting);
+            return group;
+        }
     }
 }

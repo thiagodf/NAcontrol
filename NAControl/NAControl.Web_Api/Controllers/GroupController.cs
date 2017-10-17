@@ -1,9 +1,6 @@
-﻿using NAControl.Domain.Contracts.Services;
-using NAControl.Domain.Models;
-using NAControl.Web_Api.DTOs;
+﻿using NAControl.Business.DTOs;
+using NAControl.Domain.Contracts.Services;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -79,17 +76,7 @@ namespace NAControl.Web_Api.Controllers
             
             try
             {
-                Address address = new Address(model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
-
-                List<Meeting> listMeeting = new List<Meeting>();
-                foreach (var item in model.MeetingList)
-                {
-                    Meeting meeting = new Meeting(item.Private, item.Day, item.Start, item.End, null);
-                    listMeeting.Add(meeting);
-                }
-
-                Group group = new Group(model.Name, address, listMeeting);
-                _service.Add(group);
+                _service.Register(model);
                 response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name});
             }
             catch (Exception ex)
@@ -100,6 +87,11 @@ namespace NAControl.Web_Api.Controllers
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
             tsc.SetResult(response);
             return tsc.Task;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _service.Dispose();
         }
     }
 }

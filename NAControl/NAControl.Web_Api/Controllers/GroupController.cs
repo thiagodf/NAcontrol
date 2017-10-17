@@ -89,6 +89,28 @@ namespace NAControl.Web_Api.Controllers
             return tsc.Task;
         }
 
+        [HttpPost]
+        [Route("delete")]
+        [AllowAnonymous]
+        public Task<HttpResponseMessage> Delete(int id)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                _service.Delete(id);
+                response = Request.CreateResponse(HttpStatusCode.OK, new {});
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         protected override void Dispose(bool disposing)
         {
             _service.Dispose();

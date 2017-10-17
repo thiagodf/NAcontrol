@@ -9,6 +9,7 @@ namespace NAControl.Domain.Contracts.Services
         Group GetByName(string name);
         void Register(object group);
         Group ConvertDTO(object group);
+        void Delete(int id);
         //Group GetById(int id);
         //void ChangeGroup(string name);
         List<Group> GetByRange(int skip, int take);

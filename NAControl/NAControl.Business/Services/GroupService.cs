@@ -1,19 +1,15 @@
-﻿using NAControl.Domain.Contracts.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NAControl.Domain.Models;
+﻿using NAControl.Business.DTOs;
 using NAControl.Common.Resources;
 using NAControl.Domain.Contracts.Repositories;
-using NAControl.Business.DTOs;
+using NAControl.Domain.Contracts.Services;
+using NAControl.Domain.Models;
+using System;
+using System.Collections.Generic;
 
 namespace NAControl.Business.Services
 {
     public class GroupService : IGroupService
     {
-
         private IGroupRepository _repository;
 
         public GroupService(IGroupRepository repository)
@@ -55,6 +51,12 @@ namespace NAControl.Business.Services
             _repository.Add(group);
         }
 
+        public void Delete(int id)
+        {
+            Group group = _repository.GetById(id);
+            Remove(group);
+        }
+
         public void Add(Group obj)
         {
             _repository.Add(obj);
@@ -75,11 +77,6 @@ namespace NAControl.Business.Services
             _repository.Remove(obj);
         }
 
-        public void Dispose()
-        {
-            _repository.Dispose();
-        }
-
         public Group ConvertDTO(object obj)
         {
             GroupDTO model = (GroupDTO)obj;
@@ -94,6 +91,10 @@ namespace NAControl.Business.Services
 
             var group = new Group(model.Name, address, listMeeting);
             return group;
+        }
+        public void Dispose()
+        {
+            _repository.Dispose();
         }
     }
 }

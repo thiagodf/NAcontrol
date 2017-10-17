@@ -1,8 +1,9 @@
-﻿using NAControl.Domain.Commands.Handlers;
-using NAControl.Domain.Commands.Inputs;
-using NAControl.Domain.Contracts.Services;
+﻿using NAControl.Domain.Contracts.Services;
 using NAControl.Domain.Models;
+using NAControl.Web_Api.DTOs;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,13 +14,11 @@ namespace NAControl.Web_Api.Controllers
     [RoutePrefix("api/group")]
     public class GroupController : ApiController
     {
-        private readonly GroupCommandHandler _handler;
         private IGroupService _service;
 
-        public GroupController(IGroupService service, GroupCommandHandler handler)
+        public GroupController(IGroupService service)
         {
             _service = service;
-            _handler = handler;
         }
 
         [HttpGet]
@@ -74,15 +73,23 @@ namespace NAControl.Web_Api.Controllers
         [HttpPost]
         [Route("create")]
         [AllowAnonymous]
-        public Task<HttpResponseMessage> Post([FromBody]RegisterGroupCommand model)
+        public Task<HttpResponseMessage> Post([FromBody]GroupDTO model)
         {
-            var result = _handler.Handle(model);
             HttpResponseMessage response = new HttpResponseMessage();
-
+            
             try
             {
-               // _service.Add(model);
-                _service.Register(model.Name);
+                Address address = new Address(model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
+
+                List<Meeting> listMeeting = new List<Meeting>();
+                foreach (var item in model.MeetingList)
+                {
+                    Meeting meeting = new Meeting(item.Private, item.Day, item.Start, item.End, null);
+                    listMeeting.Add(meeting);
+                }
+
+                Group group = new Group(model.Name, address, listMeeting);
+                _service.Add(group);
                 response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name});
             }
             catch (Exception ex)

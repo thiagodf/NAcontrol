@@ -8,13 +8,14 @@ namespace NAControl.Domain.Models
         {
 
         }
-        public Address(string address,string complement, string city, double latitude, double longitude)
+        public Address(int id, string address,string complement, string city, double latitude, double longitude)
         {
             this.Addresses = address;
             this.Complement = complement;
             this.City = city;
             this.Latitude = latitude;
             this.Longitude = longitude;
+            this.AddId = id;
         }
 
         public int AddId{ get; private set; }

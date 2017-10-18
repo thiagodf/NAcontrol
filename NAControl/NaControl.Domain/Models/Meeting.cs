@@ -8,13 +8,14 @@ namespace NAControl.Domain.Models
 
         public Meeting(){ }
 
-        public Meeting(bool _private, DayOfWeek day, DateTime start, DateTime end, Group group )
+        public Meeting(int id, bool _private, DayOfWeek day, DateTime start, DateTime end, Group group )
         {
             this.Private = _private;
             this.Day = day;
             this.Start = start;
             this.End = end;
             this.Group = group;
+            this.MeeId = id;
         }
 
         #endregion

@@ -51,6 +51,12 @@ namespace NAControl.Business.Services
             _repository.Add(group);
         }
 
+        public void Alter(object obj)
+        {
+            var group = ConvertDTO(obj);
+            Update(group);
+        }
+
         public void Delete(int id)
         {
             Group group = _repository.GetById(id);
@@ -80,21 +86,24 @@ namespace NAControl.Business.Services
         public Group ConvertDTO(object obj)
         {
             GroupDTO model = (GroupDTO)obj;
-            Address address = new Address(model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
+            Address address = new Address(model.Address.AddId ,model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
+            
             List<Meeting> listMeeting = new List<Meeting>();
 
             foreach (var item in model.MeetingList)
             {
-                Meeting meeting = new Meeting(item.Private, item.Day, item.Start, item.End, null);
+                Meeting meeting = new Meeting(item.MeeId, item.Private, item.Day, item.Start, item.End, null);
                 listMeeting.Add(meeting);
             }
 
-            var group = new Group(model.Name, address, listMeeting);
+            var group = new Group(model.GroId,model.Name, address, listMeeting);
             return group;
         }
         public void Dispose()
         {
             _repository.Dispose();
         }
+
+      
     }
 }

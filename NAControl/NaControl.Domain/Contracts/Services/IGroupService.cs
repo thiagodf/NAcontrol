@@ -11,7 +11,7 @@ namespace NAControl.Domain.Contracts.Services
         Group ConvertDTO(object group);
         void Delete(int id);
         //Group GetById(int id);
-        //void ChangeGroup(string name);
+        void Alter(object group);
         List<Group> GetByRange(int skip, int take);
     }
 }

@@ -90,6 +90,28 @@ namespace NAControl.Web_Api.Controllers
         }
 
         [HttpPost]
+        [Route("update")]
+        [AllowAnonymous]
+        public Task<HttpResponseMessage> Update([FromBody]GroupDTO model)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                _service.Alter(model);
+                response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name });
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [HttpPost]
         [Route("delete")]
         [AllowAnonymous]
         public Task<HttpResponseMessage> Delete(int id)

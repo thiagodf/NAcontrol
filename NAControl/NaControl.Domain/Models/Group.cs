@@ -10,11 +10,12 @@ namespace NAControl.Domain.Models
 
         public Group(){ }
 
-        public Group(string name, Address address, ICollection<Meeting> meetingList)
+        public Group(int id, string name, Address address, ICollection<Meeting> meetingList)
         {
             this.Name = name;
             this.Address = address;
             this.MeetingList = meetingList;
+            this.GroId = id;
         }
 
         #endregion

@@ -87,13 +87,16 @@ namespace NAControl.Business.Services
         {
             GroupDTO model = (GroupDTO)obj;
             Address address = new Address(model.Address.AddId ,model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
-            
+
             List<Meeting> listMeeting = new List<Meeting>();
 
-            foreach (var item in model.MeetingList)
+            if (model.MeetingList != null)
             {
-                Meeting meeting = new Meeting(item.MeeId, item.Private, item.Day, item.Start, item.End, null);
-                listMeeting.Add(meeting);
+                foreach (var item in model.MeetingList)
+                {
+                    Meeting meeting = new Meeting(item.MeeId, item.Private, item.Day, item.Start, item.End, null);
+                    listMeeting.Add(meeting);
+                }
             }
 
             var group = new Group(model.GroId,model.Name, address, listMeeting);
@@ -103,7 +106,5 @@ namespace NAControl.Business.Services
         {
             _repository.Dispose();
         }
-
-      
     }
 }

@@ -89,7 +89,7 @@ namespace NAControl.Web_Api.Controllers
             return tsc.Task;
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("update")]
         [AllowAnonymous]
         public Task<HttpResponseMessage> Update([FromBody]GroupDTO model)
@@ -111,7 +111,7 @@ namespace NAControl.Web_Api.Controllers
             return tsc.Task;
         }
 
-        [HttpPost]
+        [HttpDelete]
         [Route("delete")]
         [AllowAnonymous]
         public Task<HttpResponseMessage> Delete(int id)

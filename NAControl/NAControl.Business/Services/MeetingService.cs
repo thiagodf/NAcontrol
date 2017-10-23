@@ -1,11 +1,7 @@
-﻿using NAControl.Domain.Contracts.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NAControl.Domain.Contracts.Repositories;
+using NAControl.Domain.Contracts.Services;
 using NAControl.Domain.Models;
-using NAControl.Domain.Contracts.Repositories;
+using System.Collections.Generic;
 
 namespace NAControl.Business.Services
 {
@@ -16,16 +12,6 @@ namespace NAControl.Business.Services
         public MeetingService(IMeetingRepository repository)
         {
             _repository = repository;
-        }
-
-        public void Add(Meeting obj)
-        {
-            _repository.Add(obj);
-        }
-
-        public void Dispose()
-        {
-            _repository.Dispose();
         }
 
         public IEnumerable<Meeting> GetAll()
@@ -43,9 +29,9 @@ namespace NAControl.Business.Services
             return _repository.GetById(id);
         }
 
-        public void Remove(Meeting obj)
+        public void Add(Meeting obj)
         {
-            _repository.Remove(obj);
+            _repository.Add(obj);
         }
 
         public void Update(Meeting obj)
@@ -53,9 +39,15 @@ namespace NAControl.Business.Services
             _repository.Update(obj);
         }
 
-        public void Register(string name)
+        public void Remove(Meeting obj)
         {
-            throw new NotImplementedException();
+            _repository.Remove(obj);
         }
+
+        public void Dispose()
+        {
+            _repository.Dispose();
+        }
+
     }
 }

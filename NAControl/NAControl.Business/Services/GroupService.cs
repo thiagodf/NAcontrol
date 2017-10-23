@@ -16,12 +16,7 @@ namespace NAControl.Business.Services
         {
             _repository = repository;
         }
-
-        public void ChangeGroup(string name)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public Group GetById(int id)
         {
             return _repository.GetById(id);
@@ -41,6 +36,11 @@ namespace NAControl.Business.Services
             return _repository.Get(skip, take);
         }
 
+        public IEnumerable<Group> GetAll()
+        {
+            return _repository.GetAll();
+        }
+
         public void Register(object obj)
         {
             var group = ConvertDTO(obj);
@@ -51,31 +51,31 @@ namespace NAControl.Business.Services
             _repository.Add(group);
         }
 
+        public void Add(Group obj)
+        {
+            _repository.Add(obj);
+        }
+
         public void Alter(object obj)
         {
             var group = ConvertDTO(obj);
             Update(group);
         }
 
+        public void Update(Group obj)
+        {
+            _repository.Update(obj);
+        }
+
+        public void ChangeGroup(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(int id)
         {
             Group group = _repository.GetById(id);
             Remove(group);
-        }
-
-        public void Add(Group obj)
-        {
-            _repository.Add(obj);
-        }
-
-        public IEnumerable<Group> GetAll()
-        {
-            return _repository.GetAll();
-        }
-
-        public void Update(Group obj)
-        {
-            _repository.Update(obj);
         }
 
         public void Remove(Group obj)
@@ -102,6 +102,7 @@ namespace NAControl.Business.Services
             var group = new Group(model.GroId,model.Name, address, listMeeting);
             return group;
         }
+
         public void Dispose()
         {
             _repository.Dispose();

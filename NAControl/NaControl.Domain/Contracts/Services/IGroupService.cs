@@ -6,12 +6,12 @@ namespace NAControl.Domain.Contracts.Services
 {
     public interface IGroupService: IServiceBase<Group>
     {
-        Group GetByName(string name);
-        void Register(object group);
-        Group ConvertDTO(object group);
-        void Delete(int id);
         Group GetById(int id);
-        void Alter(object group);
+        Group GetByName(string name);
         List<Group> GetByRange(int skip, int take);
+        void Register(object group);
+        void Alter(object group);
+        void Delete(int id);
+        Group ConvertDTO(object group);
     }
 }

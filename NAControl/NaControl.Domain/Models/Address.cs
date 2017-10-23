@@ -4,6 +4,8 @@ namespace NAControl.Domain.Models
 {
     public class Address
     {
+        #region Ctor
+
         public Address()
         {
 
@@ -17,6 +19,10 @@ namespace NAControl.Domain.Models
             this.Longitude = longitude;
             this.AddId = id;
         }
+
+        #endregion
+
+        #region Properties
 
         public int AddId{ get; private set; }
 
@@ -36,5 +42,6 @@ namespace NAControl.Domain.Models
 
         public virtual IEnumerable<Group> Group { get; private set; }
 
+        #endregion
     }
 }

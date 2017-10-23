@@ -17,12 +17,7 @@ namespace NAControl.Infraestructure.Repositories
         {
             this._context = _context;
         }
-        public void Add(TEntity obj)
-        {
-            _context.Set<TEntity>().Add(obj);
-            _context.SaveChanges();
-        }
-
+      
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
@@ -31,6 +26,12 @@ namespace NAControl.Infraestructure.Repositories
         public IEnumerable<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
+        }
+
+        public void Add(TEntity obj)
+        {
+            _context.Set<TEntity>().Add(obj);
+            _context.SaveChanges();
         }
 
         public void Update(TEntity obj)

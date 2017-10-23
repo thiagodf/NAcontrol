@@ -19,10 +19,6 @@ namespace NAControl.Infraestructure.Data.Map
                 .HasMaxLength(60)
                 .IsRequired();
 
-            //HasRequired(p => p.Address)
-            // .WithMany()
-            // .HasForeignKey(p => p.Grou_AddId);
-
             HasRequired(x => x.Address)
             .WithMany() 
             .Map(m => m.MapKey("Grou_AddId"));

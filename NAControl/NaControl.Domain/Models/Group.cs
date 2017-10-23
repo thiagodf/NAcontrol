@@ -26,8 +26,6 @@ namespace NAControl.Domain.Models
 
         public string Name { get; private set; }
 
-        //public int Grou_AddId { get; private set; }
-
         public virtual Address Address { get; private set; }
 
         public ICollection<Meeting> MeetingList { get; private set; }

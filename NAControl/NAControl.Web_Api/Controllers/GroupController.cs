@@ -29,7 +29,6 @@ namespace NAControl.Web_Api.Controllers
             try
             {
                 var result = _service.GetByRange(0, 25);
-                //var result = _service.GetAll();
                 response = Request.CreateResponse(HttpStatusCode.OK, result);
             }
             catch (Exception ex)
@@ -45,8 +44,7 @@ namespace NAControl.Web_Api.Controllers
         //Busca por Nome do Grupo
         //http://localhost:1608/api/group/consulta/grupoPorNome/e
         [HttpGet]
-        //[Route("consulta/grupoPorNome/{name:alpha}")]
-        [Route("consulta/groupByName/{name}")]
+        [Route("consult/groupByName/{name}")]
         public Task<HttpResponseMessage> GetByName(string name)
         {
             HttpResponseMessage response = new HttpResponseMessage();

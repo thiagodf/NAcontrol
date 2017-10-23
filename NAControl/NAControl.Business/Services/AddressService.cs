@@ -40,16 +40,6 @@ namespace NAControl.Business.Services
             throw new NotImplementedException();
         }
 
-        //public Address GetById(int id)
-        //{
-        //    return _repository.Get(id);
-        //}
-
-        //public List<Address> GetByRange(int skip, int take)
-        //{
-        //    return _repository.Get(skip, take);
-        //}
-
         public void Register(int id)
         {
             throw new NotImplementedException();

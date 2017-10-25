@@ -65,6 +65,28 @@ namespace NAControl.Web_Api.Controllers
         }
 
 
+        //Busca po Id do Grupo
+        [HttpGet]
+        [Route("{id}")]
+        public Task<HttpResponseMessage>GetById(int id)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                var result = _service.GetById(id);
+                response = Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         [HttpPost]
         [Route("create")]
         [AllowAnonymous]

@@ -31,9 +31,15 @@ namespace NAControl.Infraestructure.Repositories
             return _context.Groups.Include("Address").Include("MeetingList").ToList().OrderBy(x => x.Name).Skip(skip).Take(take).ToList();
         }
 
+        public List<Group> GetPartialName(string name)
+        {
+            return _context.Groups.Include("Address").Include("MeetingList").ToList().OrderBy(x => x.Name).Where(x => x.Name.ToLower().StartsWith(name)).ToList();
+        }
+
         public void Dispose()
         {
             _context.Dispose();
         }
+
     }
 }

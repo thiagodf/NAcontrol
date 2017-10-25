@@ -9,5 +9,6 @@ namespace NAControl.Domain.Contracts.Repositories
         Group Get(string name);
         Group GetById(int id);
         List<Group> Get(int skip, int take);
+        List<Group> GetPartialName(string name);
     }
 }

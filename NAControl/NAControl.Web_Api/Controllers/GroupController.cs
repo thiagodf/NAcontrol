@@ -42,9 +42,8 @@ namespace NAControl.Web_Api.Controllers
         }
 
         //Busca por Nome do Grupo
-        //http://localhost:1608/api/group/consulta/grupoPorNome/e
         [HttpGet]
-        [Route("consult/groupByName/{name}")]
+        [Route("groupByName/{name}")]
         public Task<HttpResponseMessage> GetByName(string name)
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -64,6 +63,27 @@ namespace NAControl.Web_Api.Controllers
             return tsc.Task;
         }
 
+        //Busca por Nome do Grupo
+        [HttpGet]
+        [Route("groupByPartialName/{name}")]
+        public Task<HttpResponseMessage> GetByPartialName(string name)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                var result = _service.GetByPartialName(name);
+                response = Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
 
         //Busca po Id do Grupo
         [HttpGet]

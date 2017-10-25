@@ -8,6 +8,7 @@ namespace NAControl.Domain.Contracts.Services
     {
         Group GetById(int id);
         Group GetByName(string name);
+        List<Group> GetByPartialName(string name);
         List<Group> GetByRange(int skip, int take);
         void Register(object group);
         void Alter(object group);

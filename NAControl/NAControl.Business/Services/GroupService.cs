@@ -31,6 +31,11 @@ namespace NAControl.Business.Services
             return hasGroup;
         }
 
+        public List<Group> GetByPartialName(string name)
+        {
+            return _repository.GetPartialName(name);
+        }
+
         public List<Group> GetByRange(int skip, int take)
         {
             return _repository.Get(skip, take);
@@ -107,5 +112,6 @@ namespace NAControl.Business.Services
         {
             _repository.Dispose();
         }
+
     }
 }

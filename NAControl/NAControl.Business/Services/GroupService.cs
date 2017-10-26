@@ -91,7 +91,11 @@ namespace NAControl.Business.Services
         public Group ConvertDTO(object obj)
         {
             GroupDTO model = (GroupDTO)obj;
-            Address address = new Address(model.Address.AddId ,model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
+
+            Address address = new Address();
+
+            if (model.Address!=null)
+                address = new Address(model.Address.AddId ,model.Address.Addresses, model.Address.Complement, model.Address.City, model.Address.Latitude, model.Address.Longitude);
 
             List<Meeting> listMeeting = new List<Meeting>();
 

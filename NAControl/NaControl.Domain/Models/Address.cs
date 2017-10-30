@@ -10,7 +10,7 @@ namespace NAControl.Domain.Models
         {
 
         }
-        public Address(int id, string address,string complement, string city, double latitude, double longitude)
+        public Address(int id, string address,string complement, string city, string latitude, string longitude)
         {
             this.Addresses = address;
             this.Complement = complement;
@@ -36,9 +36,9 @@ namespace NAControl.Domain.Models
 
         public int ZipCode { get; private set; }
 
-        public double Latitude { get; private set; }
+        public string Latitude { get; private set; }
 
-        public double Longitude { get; private set; }
+        public string Longitude { get; private set; }
 
         public virtual IEnumerable<Group> Group { get; private set; }
 
